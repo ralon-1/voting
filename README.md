@@ -48,16 +48,16 @@ The Voting App solves the problem of running a simple, fair online election. Use
 
 ```mermaid
 graph TB
-    Client[Client / Postman / curl] -->|HTTP| Server[Express Server]
-    Server -->|Mounts| UserRoutes[/user routes]
-    Server -->|Mounts| CandidateRoutes[/candidate routes]
-    UserRoutes -->|Uses| JWT[JWT Middleware]
-    CandidateRoutes -->|Uses| JWT
-    UserRoutes -->|Queries| UserModel[(User Model)]
-    CandidateRoutes -->|Queries| CandidateModel[(Candidate Model)]
+    Client["Client / Postman / curl"] -->|HTTP| Server["Express Server"]
+    Server -->|Mounts| UserRoutes["/user routes"]
+    Server -->|Mounts| CandidateRoutes["/candidate routes"]
+    UserRoutes -->|Uses| JWT["JWT Middleware"]
+    CandidateRoutes -->|Uses| JWT["JWT Middleware"]
+    UserRoutes -->|Queries| UserModel["User Model"]
+    CandidateRoutes -->|Queries| CandidateModel["Candidate Model"]
     UserModel -->|Mongoose| MongoDB[(MongoDB)]
     CandidateModel -->|Mongoose| MongoDB
-    JWT -->|Verifies| JWT_SECRET[JWT_SECRET env var]
+    JWT -->|Verifies| JWT_SECRET["JWT_SECRET env var"]
 ```
 
 ### Request Flow — Voting
